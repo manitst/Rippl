@@ -7,13 +7,13 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		tags = "@TC1",
+		tags = "@buildfromscratch",
 		features = "src/test/resources/FeatureFiles" ,
 		glue = "stepDefinitions",
 		plugin = {"pretty","junit:target/cucumber-reports/cucumber.xml",
 				 	       "html:target/cucumber-reports/cucumber.html" },
 		monochrome = true, 
-		dryRun = false,
+		dryRun = true,
 		publish = true
 		
 		)

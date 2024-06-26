@@ -53,7 +53,7 @@ public class loginPage extends TestBase
 	
 	By shortdiscription = By.xpath("//*[@id=\":r5:\"]");
 	By actiondiscription = By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/main/form/div/div[2]/div[1]/div/div/div[4]/div/div[2]/div[1]");
-	By actionrepeatable = By.xpath("//*[contains(@name,':rt:')]");
+	By actionrepeatable = By.xpath("//*[contains(@name,':r4:')]");
 	By startdates = By.xpath("//*[contains(@text,'20th']");
 	By enddates = By.xpath("//contains[@text,'25th']");
 	By filterbycustomertags = By.className("css-19bb58m");
@@ -78,9 +78,9 @@ public class loginPage extends TestBase
 		driver.findElement(loginlink).click();
 	}
 	
-	public void enterEmailAddress(String emailid)  throws InterruptedException
+	public void enterEmailAddress()  throws InterruptedException
 	{
-		driver.findElement(emailaddress).sendKeys(emailid);
+		driver.findElement(emailaddress).sendKeys("abhik.khandelwal01@gmail.com");
 		
 	 
 	}
