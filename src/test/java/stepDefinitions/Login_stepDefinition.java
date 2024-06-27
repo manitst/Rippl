@@ -1,17 +1,22 @@
 package stepDefinitions;
 
+import Pages.RipplRewardsPage;
 import Pages.loginPage;
+import Pages.previewPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import webPageAction.TestBase;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 public class Login_stepDefinition extends TestBase
 {
 	
 	loginPage loginpage = new loginPage();
 	TestBase testbase = new TestBase();
+	RipplRewardsPage ripplrewardspage = new RipplRewardsPage();
+	previewPage previewpage = new previewPage();
 
 	@Given("user is on Shopify home page")
 	public void user_is_on_shopify_home_page() throws InterruptedException
@@ -70,13 +75,21 @@ public class Login_stepDefinition extends TestBase
 	
 	
 		@Then("verify created challenge is displayed in Ways to Earn challenges list")
-	public void verify_created_challenge_is_displayed_in_ways_to_earn_challenges_list() {
-	    
+	public void verify_created_challenge_is_displayed_in_ways_to_earn_challenges_list() 
+		{
+			
+			String challengename = "Fitness Bingo challenge";
+			Assert.assertEquals(challengename, ripplrewardspage.returnChallengeName());
+			System.out.println("The challengename is same as entered in the form");
 	}
 	@Then("verify created challenge contains exactly the same details filled in the form during creation {string},<short_description>,{string},{string},{string},{string},{string},{string},{string},{string},{string},{string},{string}")
-	public void verify_created_challenge_contains_exactly_the_same_details_filled_in_the_form_during_creation_short_description(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11, String string12) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void verify_created_challenge_contains_exactly_the_same_details_filled_in_the_form_during_creation_short_description(String name, String short_discription, String startdate, String enddate, String filter_by_customer_tags, String rewardpoints, String water_saved, String plastic_saved, String Trees_planted, String optional, String content, String correlated_task) 
+	{
+	  ripplrewardspage.directingToBrandingPage();
+	  previewpage.clickwidgetButton();
+	  String challengename = "Fitness Bingo Challenge";
+	  Assert.assertEquals(challengename, previewpage.returnChallengeName());
+	  
 	}
 
 

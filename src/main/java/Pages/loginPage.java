@@ -164,7 +164,7 @@ public class loginPage extends TestBase
 
 	     String line;
 	     while ((line = br.readLine()) != null) {
-	       data += line + "\n"; // Add newline character if needed
+	       data += line + "\n"; 
 	     }
 
 	     br.close();

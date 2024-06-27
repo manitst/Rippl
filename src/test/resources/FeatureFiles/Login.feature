@@ -14,6 +14,6 @@ Scenario Outline: As an admin user, I should be able to build a template from sc
   
 Examples:
   |store_name                |name                     |short_discription                          |startdate   |enddate     |filter_by_tags          |tracking_instruction|reward_points|water_saved|plastic_saved|trees_planted|optional_email_settings       |content|correlated_task         |
-  |Staging May 2 Test Store 1|"Fitness Bingo challenge"|"Engage in a variety of fitness activities"|"20-05-2024"|"25-05-2024"|"base_tier"             |"Live image capture"|"1"          |"1"        |"1"          |"1"          |"abhik.khandelwal01@gmail.com"|"test" |"Drink a glass of water"|
+  |Staging May 2 Test Store 1|"Fitness Bingo challenge"|"Engage in a variety of fitness activities"|"05-20-2024"|"05-25-2024"|"base_tier"             |"Live image capture"|"1"          |"1"        |"1"          |"1"          |"abhik.khandelwal01@gmail.com"|"test" |"Drink a glass of water"|
 
 
