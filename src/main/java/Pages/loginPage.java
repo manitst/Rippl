@@ -3,7 +3,9 @@ package Pages;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -66,12 +68,15 @@ public class loginPage extends TestBase
 	By contenttext = By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/main/form/div/div[2]/div[5]/div/div/div[3]/div/div[2]/div[1]");
 	By correlatedtask = By.id(":r1n:");
 	By status = By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/main/form/div/div[3]/div[1]/div[2]/div/label[1]/span[1]/input");
+	
 	By Tags = By.className("css-8mmkcg");
 	By uploadbanner = By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/main/form/div/div[3]/div[3]/div[2]/div/input");
 	By icon = By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/main/form/div/div[3]/div[4]/div[2]/div/label[1]/span[2]");
 	By publishbtn = By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/main/form/div/div[4]/div/div/button[2]");
 	
 	public WebDriverWait wait = new WebDriverWait(driver,java.time.Duration.ofNanos(2000));
+	
+TestBase testbase = new TestBase();
 			
 	public void login()
 	{
@@ -147,7 +152,7 @@ public class loginPage extends TestBase
    public void enternamefield(String name) throws InterruptedException
    {
 	   Thread.sleep(3000);
-	   driver.findElement(namefield).sendKeys(name);
+	   driver.findElement(namefield).sendKeys(testbase.RandomNameGen());
    }
    public void entershortdiscription(String short_discription)
    {
@@ -239,9 +244,37 @@ public class loginPage extends TestBase
    {
 	   WebElement iconselect = driver.findElement(icon);
 	   iconselect.click();
+	   WebElement selectstatus = driver.findElement(status);
+	   if(!selectstatus.isSelected())
+	   {
+		  selectstatus.click();
+	   }
    }
    public void publishpage()
    {
 	   driver.findElement(publishbtn).click();
+   }
+   public void verifyChallengeData(Map<String, String> challengeData) {
+		Assert.assertEquals(challengeData.get("name"), ((WebElement)namefield).getText());
+		Assert.assertEquals(challengeData.get("shortDescription"),((WebElement)shortdiscription).getText());
+		Assert.assertEquals(challengeData.get("startDate"), ((WebElement)startdates).getText());
+		Assert.assertEquals(challengeData.get("endDate"), ((WebElement)enddates).getText());
+		Assert.assertEquals(challengeData.get("filterbycustomertags"),((WebElement)filterbycustomertags).getText());
+		Assert.assertEquals(challengeData.get("rewardpoints"), ((WebElement)rewardpoints).getText());
+		Assert.assertEquals(challengeData.get("watersaved"), ((WebElement)watersaved).getText());
+		Assert.assertEquals(challengeData.get("plasticsaved"), ((WebElement)plasticsaved).getText());
+		Assert.assertEquals(challengeData.get("treesplanted"), ((WebElement)tressplanted).getText());
+		Assert.assertEquals(challengeData.get("optionalEmailSettings"), ((WebElement)optionalemail).getText());
+		Assert.assertEquals(challengeData.get("Content"), ((WebElement)contenttext).getText());
+		Assert.assertEquals(challengeData.get("correlatedTask"), ((WebElement)correlatedtask).getText());
+
+	}
+   public void statusactive()
+   {
+	   WebElement selectstatus = driver.findElement(status);
+	   if(!selectstatus.isSelected())
+	   {
+		  selectstatus.click();
+	   }
    }
 }
