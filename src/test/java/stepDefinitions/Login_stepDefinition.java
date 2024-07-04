@@ -148,9 +148,9 @@ public class Login_stepDefinition extends TestBase {
 	}
 
 	@Then("verify user can view same {string} in widget dash for the challenge {string} set during challenge creation")
-	public void verify_user_can_view_same_in_widget_dash_for_the_challenge_set_during_challenge_creation(String string,
-			String string2) {
-
+	public void verify_user_can_view_same_in_widget_dash_for_the_challenge_set_during_challenge_creation(
+			String tracking_instruction, String string2) {
+		previewpage.verifyTrackInfo(tracking_instruction);
 	}
 
 }

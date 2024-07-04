@@ -25,6 +25,8 @@ public class previewPage extends TestBase {
 	By shortdescription = By.xpath("//*[@id=\"main\"]/div[3]/div[4]/div/div/div[2]/div[1]");
 	By nametemplate = By.xpath("//*[@id=\"main\"]/div[3]/div[4]/div/div/div[2]/h2");
 	By textactiondes = By.xpath("//*[@id=\"main\"]/div/div/div[2]/div/p/strong");
+	By completeactionbtn = By.xpath("//*[@id=\"main\"]/div/div/button[2]");
+	By trackingtext = By.xpath("//*[@id=\"main\"]/div[2]/div/div/div/p");
 
 	public void clickwidgetButton() {
 		driver.findElement(widgetbtn).click();
@@ -107,4 +109,13 @@ public class previewPage extends TestBase {
 		}
 	}
 
+	public void verifyTrackInfo(String tracking_instruction) {
+		WebElement widgetpopup = driver.findElement(widgetpop);
+		driver.switchTo().frame(widgetpopup);
+		driver.findElement(challengename).click();
+		driver.findElement(completeactionbtn).click();
+		String trackininfocopy = driver.findElement(trackingtext).getText();
+		Assert.assertEquals(widgetpopup, trackininfocopy);
+
+	}
 }
