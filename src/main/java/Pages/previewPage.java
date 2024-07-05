@@ -109,13 +109,17 @@ public class previewPage extends TestBase {
 		}
 	}
 
-	public void verifyTrackInfo(String tracking_instruction) {
+	public void clickchallengename(String name) {
 		WebElement widgetpopup = driver.findElement(widgetpop);
 		driver.switchTo().frame(widgetpopup);
 		driver.findElement(challengename).click();
+	}
+
+	public void verifyTrackInfo(String tracking_instruction) {
+
 		driver.findElement(completeactionbtn).click();
 		String trackininfocopy = driver.findElement(trackingtext).getText();
-		Assert.assertEquals(widgetpopup, trackininfocopy);
+		Assert.assertEquals(tracking_instruction, trackininfocopy);
 
 	}
 }

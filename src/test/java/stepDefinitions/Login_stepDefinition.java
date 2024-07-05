@@ -149,8 +149,30 @@ public class Login_stepDefinition extends TestBase {
 
 	@Then("verify user can view same {string} in widget dash for the challenge {string} set during challenge creation")
 	public void verify_user_can_view_same_in_widget_dash_for_the_challenge_set_during_challenge_creation(
-			String tracking_instruction, String string2) {
+			String tracking_instruction, String name) {
 		previewpage.verifyTrackInfo(tracking_instruction);
 	}
 
+	@Then("verify user is able to complete the action challenge_name")
+	public void verify_user_is_able_to_complete_the_action_challenge_name(String tracking_instruction) {
+		previewpage.verifyTrackInfo(tracking_instruction);
+	}
+
+	@Then("verify users account is credited with the same {string} on completing the challenge_name which was configured")
+	public void verify_users_account_is_credited_with_the_same_on_completing_the_challenge_name_which_was_configured(
+			String string) {
+
+	}
+
+	@Then("verify on approving the completed action, a {string} configured in the challenge is created in the Tasks")
+	public void verify_on_approving_the_completed_action_a_configured_in_the_challenge_is_created_in_the_tasks(
+			String string) {
+
+	}
+
+	@Then("verify imapct reward point {string} should only be credited to the users account if the action is approved")
+	public void verify_imapct_reward_point_should_only_be_credited_to_the_users_account_if_the_action_is_approved(
+			String string) {
+
+	}
 }
